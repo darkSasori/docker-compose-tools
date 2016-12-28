@@ -138,7 +138,7 @@ case "$1" in
         args=${args//\//\\/}
         cmd=`cat $CMDS | jq ".$1" | sed -e 's/\"//g' |sed -e "s/{{container}}/${CONTAINER}/" |sed -e "s/{{args}}/${args}/"`
         if [ "$cmd" == "null" ]; then
-            echo "commando $1 not found";
+            echo "command $1 not found";
             exit 1;
         fi
         echo "exec: $cmd"
